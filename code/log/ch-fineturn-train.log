@@ -1,0 +1,691 @@
+[2024/12/28 23:34:30] ppocr INFO: Architecture : 
+[2024/12/28 23:34:30] ppocr INFO:     Backbone : 
+[2024/12/28 23:34:30] ppocr INFO:         name : RepSVTR
+[2024/12/28 23:34:30] ppocr INFO:     Head : 
+[2024/12/28 23:34:30] ppocr INFO:         head_list : 
+[2024/12/28 23:34:30] ppocr INFO:             CTCHead : 
+[2024/12/28 23:34:30] ppocr INFO:                 Head : 
+[2024/12/28 23:34:30] ppocr INFO:                     fc_decay : 1e-05
+[2024/12/28 23:34:30] ppocr INFO:                 Neck : 
+[2024/12/28 23:34:30] ppocr INFO:                     depth : 2
+[2024/12/28 23:34:30] ppocr INFO:                     dims : 256
+[2024/12/28 23:34:30] ppocr INFO:                     hidden_dims : 256
+[2024/12/28 23:34:30] ppocr INFO:                     kernel_size : [1, 3]
+[2024/12/28 23:34:30] ppocr INFO:                     name : svtr
+[2024/12/28 23:34:30] ppocr INFO:                     use_guide : True
+[2024/12/28 23:34:30] ppocr INFO:             NRTRHead : 
+[2024/12/28 23:34:30] ppocr INFO:                 max_text_length : 25
+[2024/12/28 23:34:30] ppocr INFO:                 nrtr_dim : 384
+[2024/12/28 23:34:30] ppocr INFO:                 num_decoder_layers : 2
+[2024/12/28 23:34:30] ppocr INFO:         name : MultiHead
+[2024/12/28 23:34:30] ppocr INFO:     Transform : None
+[2024/12/28 23:34:30] ppocr INFO:     algorithm : SVTR_HGNet
+[2024/12/28 23:34:30] ppocr INFO:     model_type : rec
+[2024/12/28 23:34:30] ppocr INFO: Eval : 
+[2024/12/28 23:34:30] ppocr INFO:     dataset : 
+[2024/12/28 23:34:30] ppocr INFO:         data_dir : ../ic15_rec
+[2024/12/28 23:34:30] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:34:30] ppocr INFO:         name : SimpleDataSet
+[2024/12/28 23:34:30] ppocr INFO:         transforms : 
+[2024/12/28 23:34:30] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:34:30] ppocr INFO:                 channel_first : False
+[2024/12/28 23:34:30] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:34:30] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:34:30] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:34:30] ppocr INFO:             RecResizeImg : 
+[2024/12/28 23:34:30] ppocr INFO:                 image_shape : [3, 48, 320]
+[2024/12/28 23:34:30] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:34:30] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:34:30] ppocr INFO:     loader : 
+[2024/12/28 23:34:30] ppocr INFO:         batch_size_per_card : 128
+[2024/12/28 23:34:30] ppocr INFO:         drop_last : False
+[2024/12/28 23:34:30] ppocr INFO:         num_workers : 4
+[2024/12/28 23:34:30] ppocr INFO:         shuffle : False
+[2024/12/28 23:34:30] ppocr INFO: Global : 
+[2024/12/28 23:34:30] ppocr INFO:     cal_metric_during_train : False
+[2024/12/28 23:34:30] ppocr INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2024/12/28 23:34:30] ppocr INFO:     checkpoints : None
+[2024/12/28 23:34:30] ppocr INFO:     d2s_train_image_shape : [3, 48, 320]
+[2024/12/28 23:34:30] ppocr INFO:     debug : False
+[2024/12/28 23:34:30] ppocr INFO:     distributed : False
+[2024/12/28 23:34:30] ppocr INFO:     epoch_num : 20
+[2024/12/28 23:34:30] ppocr INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2024/12/28 23:34:30] ppocr INFO:     infer_mode : False
+[2024/12/28 23:34:30] ppocr INFO:     log_smooth_window : 10
+[2024/12/28 23:34:30] ppocr INFO:     max_text_length : 25
+[2024/12/28 23:34:30] ppocr INFO:     pretrained_model : ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:34:30] ppocr INFO:     print_batch_step : 10
+[2024/12/28 23:34:30] ppocr INFO:     save_epoch_step : 10
+[2024/12/28 23:34:30] ppocr INFO:     save_inference_dir : None
+[2024/12/28 23:34:30] ppocr INFO:     save_model_dir : ./output/rec_repsvtr_ch
+[2024/12/28 23:34:30] ppocr INFO:     save_res_path : ./output/rec/predicts_repsvtr.txt
+[2024/12/28 23:34:30] ppocr INFO:     use_gpu : True
+[2024/12/28 23:34:30] ppocr INFO:     use_space_char : True
+[2024/12/28 23:34:30] ppocr INFO:     use_visualdl : False
+[2024/12/28 23:34:30] ppocr INFO: Loss : 
+[2024/12/28 23:34:30] ppocr INFO:     loss_config_list : 
+[2024/12/28 23:34:30] ppocr INFO:         CTCLoss : None
+[2024/12/28 23:34:30] ppocr INFO:         NRTRLoss : None
+[2024/12/28 23:34:30] ppocr INFO:     name : MultiLoss
+[2024/12/28 23:34:30] ppocr INFO: Metric : 
+[2024/12/28 23:34:30] ppocr INFO:     main_indicator : acc
+[2024/12/28 23:34:30] ppocr INFO:     name : RecMetric
+[2024/12/28 23:34:30] ppocr INFO: Optimizer : 
+[2024/12/28 23:34:30] ppocr INFO:     beta1 : 0.9
+[2024/12/28 23:34:30] ppocr INFO:     beta2 : 0.999
+[2024/12/28 23:34:30] ppocr INFO:     epsilon : 1e-08
+[2024/12/28 23:34:30] ppocr INFO:     lr : 
+[2024/12/28 23:34:30] ppocr INFO:         learning_rate : 0.0001
+[2024/12/28 23:34:30] ppocr INFO:         name : Cosine
+[2024/12/28 23:34:30] ppocr INFO:         warmup_epoch : 5
+[2024/12/28 23:34:30] ppocr INFO:     name : AdamW
+[2024/12/28 23:34:30] ppocr INFO:     no_weight_decay_name : norm
+[2024/12/28 23:34:30] ppocr INFO:     one_dim_param_no_weight_decay : True
+[2024/12/28 23:34:30] ppocr INFO:     weight_decay : 0.025
+[2024/12/28 23:34:30] ppocr INFO: PostProcess : 
+[2024/12/28 23:34:30] ppocr INFO:     name : CTCLabelDecode
+[2024/12/28 23:34:30] ppocr INFO: Train : 
+[2024/12/28 23:34:30] ppocr INFO:     dataset : 
+[2024/12/28 23:34:30] ppocr INFO:         data_dir : ../ic15_rec/
+[2024/12/28 23:34:30] ppocr INFO:         ds_width : False
+[2024/12/28 23:34:30] ppocr INFO:         ext_op_transform_idx : 1
+[2024/12/28 23:34:30] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:34:30] ppocr INFO:         name : MultiScaleDataSet
+[2024/12/28 23:34:30] ppocr INFO:         transforms : 
+[2024/12/28 23:34:30] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:34:30] ppocr INFO:                 channel_first : False
+[2024/12/28 23:34:30] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:34:30] ppocr INFO:             RecAug : None
+[2024/12/28 23:34:30] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:34:30] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:34:30] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:34:30] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:34:30] ppocr INFO:     loader : 
+[2024/12/28 23:34:30] ppocr INFO:         batch_size_per_card : 192
+[2024/12/28 23:34:30] ppocr INFO:         drop_last : True
+[2024/12/28 23:34:30] ppocr INFO:         num_workers : 8
+[2024/12/28 23:34:30] ppocr INFO:         shuffle : True
+[2024/12/28 23:34:30] ppocr INFO:     sampler : 
+[2024/12/28 23:34:30] ppocr INFO:         divided_factor : [8, 16]
+[2024/12/28 23:34:30] ppocr INFO:         first_bs : 192
+[2024/12/28 23:34:30] ppocr INFO:         fix_bs : False
+[2024/12/28 23:34:30] ppocr INFO:         is_training : True
+[2024/12/28 23:34:30] ppocr INFO:         name : MultiScaleSampler
+[2024/12/28 23:34:30] ppocr INFO:         scales : [[320, 32], [320, 48], [320, 64]]
+[2024/12/28 23:34:30] ppocr INFO: profiler_options : None
+[2024/12/28 23:34:30] ppocr INFO: train with paddle 2.6.2 and device Place(gpu:0)
+[2024/12/28 23:34:30] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:34:30] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:34:31] ppocr INFO: train dataloader has 30 iters
+[2024/12/28 23:34:31] ppocr INFO: valid dataloader has 17 iters
+[2024/12/28 23:34:31] ppocr INFO: load pretrain successful from ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:34:58] ppocr INFO: Architecture : 
+[2024/12/28 23:34:58] ppocr INFO:     Backbone : 
+[2024/12/28 23:34:58] ppocr INFO:         name : RepSVTR
+[2024/12/28 23:34:58] ppocr INFO:     Head : 
+[2024/12/28 23:34:58] ppocr INFO:         head_list : 
+[2024/12/28 23:34:58] ppocr INFO:             CTCHead : 
+[2024/12/28 23:34:58] ppocr INFO:                 Head : 
+[2024/12/28 23:34:58] ppocr INFO:                     fc_decay : 1e-05
+[2024/12/28 23:34:58] ppocr INFO:                 Neck : 
+[2024/12/28 23:34:58] ppocr INFO:                     depth : 2
+[2024/12/28 23:34:58] ppocr INFO:                     dims : 256
+[2024/12/28 23:34:58] ppocr INFO:                     hidden_dims : 256
+[2024/12/28 23:34:58] ppocr INFO:                     kernel_size : [1, 3]
+[2024/12/28 23:34:58] ppocr INFO:                     name : svtr
+[2024/12/28 23:34:58] ppocr INFO:                     use_guide : True
+[2024/12/28 23:34:58] ppocr INFO:             NRTRHead : 
+[2024/12/28 23:34:58] ppocr INFO:                 max_text_length : 25
+[2024/12/28 23:34:58] ppocr INFO:                 nrtr_dim : 384
+[2024/12/28 23:34:58] ppocr INFO:                 num_decoder_layers : 2
+[2024/12/28 23:34:58] ppocr INFO:         name : MultiHead
+[2024/12/28 23:34:58] ppocr INFO:     Transform : None
+[2024/12/28 23:34:58] ppocr INFO:     algorithm : SVTR_HGNet
+[2024/12/28 23:34:58] ppocr INFO:     model_type : rec
+[2024/12/28 23:34:58] ppocr INFO: Eval : 
+[2024/12/28 23:34:58] ppocr INFO:     dataset : 
+[2024/12/28 23:34:58] ppocr INFO:         data_dir : ../ic15_rec
+[2024/12/28 23:34:58] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:34:58] ppocr INFO:         name : SimpleDataSet
+[2024/12/28 23:34:58] ppocr INFO:         transforms : 
+[2024/12/28 23:34:58] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:34:58] ppocr INFO:                 channel_first : False
+[2024/12/28 23:34:58] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:34:58] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:34:58] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:34:58] ppocr INFO:             RecResizeImg : 
+[2024/12/28 23:34:58] ppocr INFO:                 image_shape : [3, 48, 320]
+[2024/12/28 23:34:58] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:34:58] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:34:58] ppocr INFO:     loader : 
+[2024/12/28 23:34:58] ppocr INFO:         batch_size_per_card : 128
+[2024/12/28 23:34:58] ppocr INFO:         drop_last : False
+[2024/12/28 23:34:58] ppocr INFO:         num_workers : 4
+[2024/12/28 23:34:58] ppocr INFO:         shuffle : False
+[2024/12/28 23:34:58] ppocr INFO: Global : 
+[2024/12/28 23:34:58] ppocr INFO:     cal_metric_during_train : False
+[2024/12/28 23:34:58] ppocr INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2024/12/28 23:34:58] ppocr INFO:     checkpoints : None
+[2024/12/28 23:34:58] ppocr INFO:     d2s_train_image_shape : [3, 48, 320]
+[2024/12/28 23:34:58] ppocr INFO:     debug : False
+[2024/12/28 23:34:58] ppocr INFO:     distributed : False
+[2024/12/28 23:34:58] ppocr INFO:     epoch_num : 20
+[2024/12/28 23:34:58] ppocr INFO:     eval_batch_step : []
+[2024/12/28 23:34:58] ppocr INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2024/12/28 23:34:58] ppocr INFO:     infer_mode : False
+[2024/12/28 23:34:58] ppocr INFO:     log_smooth_window : 10
+[2024/12/28 23:34:58] ppocr INFO:     max_text_length : 25
+[2024/12/28 23:34:58] ppocr INFO:     pretrained_model : ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:34:58] ppocr INFO:     print_batch_step : 10
+[2024/12/28 23:34:58] ppocr INFO:     save_epoch_step : 10
+[2024/12/28 23:34:58] ppocr INFO:     save_inference_dir : None
+[2024/12/28 23:34:58] ppocr INFO:     save_model_dir : ./output/rec_repsvtr_ch
+[2024/12/28 23:34:58] ppocr INFO:     save_res_path : ./output/rec/predicts_repsvtr.txt
+[2024/12/28 23:34:58] ppocr INFO:     use_gpu : True
+[2024/12/28 23:34:58] ppocr INFO:     use_space_char : True
+[2024/12/28 23:34:58] ppocr INFO:     use_visualdl : False
+[2024/12/28 23:34:58] ppocr INFO: Loss : 
+[2024/12/28 23:34:58] ppocr INFO:     loss_config_list : 
+[2024/12/28 23:34:58] ppocr INFO:         CTCLoss : None
+[2024/12/28 23:34:58] ppocr INFO:         NRTRLoss : None
+[2024/12/28 23:34:58] ppocr INFO:     name : MultiLoss
+[2024/12/28 23:34:58] ppocr INFO: Metric : 
+[2024/12/28 23:34:58] ppocr INFO:     main_indicator : acc
+[2024/12/28 23:34:58] ppocr INFO:     name : RecMetric
+[2024/12/28 23:34:58] ppocr INFO: Optimizer : 
+[2024/12/28 23:34:58] ppocr INFO:     beta1 : 0.9
+[2024/12/28 23:34:58] ppocr INFO:     beta2 : 0.999
+[2024/12/28 23:34:58] ppocr INFO:     epsilon : 1e-08
+[2024/12/28 23:34:58] ppocr INFO:     lr : 
+[2024/12/28 23:34:58] ppocr INFO:         learning_rate : 0.0001
+[2024/12/28 23:34:58] ppocr INFO:         name : Cosine
+[2024/12/28 23:34:58] ppocr INFO:         warmup_epoch : 5
+[2024/12/28 23:34:58] ppocr INFO:     name : AdamW
+[2024/12/28 23:34:58] ppocr INFO:     no_weight_decay_name : norm
+[2024/12/28 23:34:58] ppocr INFO:     one_dim_param_no_weight_decay : True
+[2024/12/28 23:34:58] ppocr INFO:     weight_decay : 0.025
+[2024/12/28 23:34:58] ppocr INFO: PostProcess : 
+[2024/12/28 23:34:58] ppocr INFO:     name : CTCLabelDecode
+[2024/12/28 23:34:58] ppocr INFO: Train : 
+[2024/12/28 23:34:58] ppocr INFO:     dataset : 
+[2024/12/28 23:34:58] ppocr INFO:         data_dir : ../ic15_rec/
+[2024/12/28 23:34:58] ppocr INFO:         ds_width : False
+[2024/12/28 23:34:58] ppocr INFO:         ext_op_transform_idx : 1
+[2024/12/28 23:34:58] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:34:58] ppocr INFO:         name : MultiScaleDataSet
+[2024/12/28 23:34:58] ppocr INFO:         transforms : 
+[2024/12/28 23:34:58] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:34:58] ppocr INFO:                 channel_first : False
+[2024/12/28 23:34:58] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:34:58] ppocr INFO:             RecAug : None
+[2024/12/28 23:34:58] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:34:58] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:34:58] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:34:58] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:34:58] ppocr INFO:     loader : 
+[2024/12/28 23:34:58] ppocr INFO:         batch_size_per_card : 192
+[2024/12/28 23:34:58] ppocr INFO:         drop_last : True
+[2024/12/28 23:34:58] ppocr INFO:         num_workers : 8
+[2024/12/28 23:34:58] ppocr INFO:         shuffle : True
+[2024/12/28 23:34:58] ppocr INFO:     sampler : 
+[2024/12/28 23:34:58] ppocr INFO:         divided_factor : [8, 16]
+[2024/12/28 23:34:58] ppocr INFO:         first_bs : 192
+[2024/12/28 23:34:58] ppocr INFO:         fix_bs : False
+[2024/12/28 23:34:58] ppocr INFO:         is_training : True
+[2024/12/28 23:34:58] ppocr INFO:         name : MultiScaleSampler
+[2024/12/28 23:34:58] ppocr INFO:         scales : [[320, 32], [320, 48], [320, 64]]
+[2024/12/28 23:34:58] ppocr INFO: profiler_options : None
+[2024/12/28 23:34:58] ppocr INFO: train with paddle 2.6.2 and device Place(gpu:0)
+[2024/12/28 23:34:58] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:34:59] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:35:00] ppocr INFO: train dataloader has 30 iters
+[2024/12/28 23:35:00] ppocr INFO: valid dataloader has 17 iters
+[2024/12/28 23:35:00] ppocr INFO: load pretrain successful from ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:35:56] ppocr INFO: Architecture : 
+[2024/12/28 23:35:56] ppocr INFO:     Backbone : 
+[2024/12/28 23:35:56] ppocr INFO:         name : RepSVTR
+[2024/12/28 23:35:56] ppocr INFO:     Head : 
+[2024/12/28 23:35:56] ppocr INFO:         head_list : 
+[2024/12/28 23:35:56] ppocr INFO:             CTCHead : 
+[2024/12/28 23:35:56] ppocr INFO:                 Head : 
+[2024/12/28 23:35:56] ppocr INFO:                     fc_decay : 1e-05
+[2024/12/28 23:35:56] ppocr INFO:                 Neck : 
+[2024/12/28 23:35:56] ppocr INFO:                     depth : 2
+[2024/12/28 23:35:56] ppocr INFO:                     dims : 256
+[2024/12/28 23:35:56] ppocr INFO:                     hidden_dims : 256
+[2024/12/28 23:35:56] ppocr INFO:                     kernel_size : [1, 3]
+[2024/12/28 23:35:56] ppocr INFO:                     name : svtr
+[2024/12/28 23:35:56] ppocr INFO:                     use_guide : True
+[2024/12/28 23:35:56] ppocr INFO:             NRTRHead : 
+[2024/12/28 23:35:56] ppocr INFO:                 max_text_length : 25
+[2024/12/28 23:35:56] ppocr INFO:                 nrtr_dim : 384
+[2024/12/28 23:35:56] ppocr INFO:                 num_decoder_layers : 2
+[2024/12/28 23:35:56] ppocr INFO:         name : MultiHead
+[2024/12/28 23:35:56] ppocr INFO:     Transform : None
+[2024/12/28 23:35:56] ppocr INFO:     algorithm : SVTR_HGNet
+[2024/12/28 23:35:56] ppocr INFO:     model_type : rec
+[2024/12/28 23:35:56] ppocr INFO: Eval : 
+[2024/12/28 23:35:56] ppocr INFO:     dataset : 
+[2024/12/28 23:35:56] ppocr INFO:         data_dir : ../ic15_rec
+[2024/12/28 23:35:56] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:35:56] ppocr INFO:         name : SimpleDataSet
+[2024/12/28 23:35:56] ppocr INFO:         transforms : 
+[2024/12/28 23:35:56] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:35:56] ppocr INFO:                 channel_first : False
+[2024/12/28 23:35:56] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:35:56] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:35:56] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:35:56] ppocr INFO:             RecResizeImg : 
+[2024/12/28 23:35:56] ppocr INFO:                 image_shape : [3, 48, 320]
+[2024/12/28 23:35:56] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:35:56] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:35:56] ppocr INFO:     loader : 
+[2024/12/28 23:35:56] ppocr INFO:         batch_size_per_card : 128
+[2024/12/28 23:35:56] ppocr INFO:         drop_last : False
+[2024/12/28 23:35:56] ppocr INFO:         num_workers : 4
+[2024/12/28 23:35:56] ppocr INFO:         shuffle : False
+[2024/12/28 23:35:56] ppocr INFO: Global : 
+[2024/12/28 23:35:56] ppocr INFO:     cal_metric_during_train : False
+[2024/12/28 23:35:56] ppocr INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2024/12/28 23:35:56] ppocr INFO:     checkpoints : None
+[2024/12/28 23:35:56] ppocr INFO:     d2s_train_image_shape : [3, 48, 320]
+[2024/12/28 23:35:56] ppocr INFO:     debug : False
+[2024/12/28 23:35:56] ppocr INFO:     distributed : False
+[2024/12/28 23:35:56] ppocr INFO:     epoch_num : 20
+[2024/12/28 23:35:56] ppocr INFO:     eval_batch_step : [0]
+[2024/12/28 23:35:56] ppocr INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2024/12/28 23:35:56] ppocr INFO:     infer_mode : False
+[2024/12/28 23:35:56] ppocr INFO:     log_smooth_window : 10
+[2024/12/28 23:35:56] ppocr INFO:     max_text_length : 25
+[2024/12/28 23:35:56] ppocr INFO:     pretrained_model : ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:35:56] ppocr INFO:     print_batch_step : 10
+[2024/12/28 23:35:56] ppocr INFO:     save_epoch_step : 10
+[2024/12/28 23:35:56] ppocr INFO:     save_inference_dir : None
+[2024/12/28 23:35:56] ppocr INFO:     save_model_dir : ./output/rec_repsvtr_ch
+[2024/12/28 23:35:56] ppocr INFO:     save_res_path : ./output/rec/predicts_repsvtr.txt
+[2024/12/28 23:35:56] ppocr INFO:     use_gpu : True
+[2024/12/28 23:35:56] ppocr INFO:     use_space_char : True
+[2024/12/28 23:35:56] ppocr INFO:     use_visualdl : False
+[2024/12/28 23:35:56] ppocr INFO: Loss : 
+[2024/12/28 23:35:56] ppocr INFO:     loss_config_list : 
+[2024/12/28 23:35:56] ppocr INFO:         CTCLoss : None
+[2024/12/28 23:35:56] ppocr INFO:         NRTRLoss : None
+[2024/12/28 23:35:56] ppocr INFO:     name : MultiLoss
+[2024/12/28 23:35:56] ppocr INFO: Metric : 
+[2024/12/28 23:35:56] ppocr INFO:     main_indicator : acc
+[2024/12/28 23:35:56] ppocr INFO:     name : RecMetric
+[2024/12/28 23:35:56] ppocr INFO: Optimizer : 
+[2024/12/28 23:35:56] ppocr INFO:     beta1 : 0.9
+[2024/12/28 23:35:56] ppocr INFO:     beta2 : 0.999
+[2024/12/28 23:35:56] ppocr INFO:     epsilon : 1e-08
+[2024/12/28 23:35:56] ppocr INFO:     lr : 
+[2024/12/28 23:35:56] ppocr INFO:         learning_rate : 0.0001
+[2024/12/28 23:35:56] ppocr INFO:         name : Cosine
+[2024/12/28 23:35:56] ppocr INFO:         warmup_epoch : 5
+[2024/12/28 23:35:56] ppocr INFO:     name : AdamW
+[2024/12/28 23:35:56] ppocr INFO:     no_weight_decay_name : norm
+[2024/12/28 23:35:56] ppocr INFO:     one_dim_param_no_weight_decay : True
+[2024/12/28 23:35:56] ppocr INFO:     weight_decay : 0.025
+[2024/12/28 23:35:56] ppocr INFO: PostProcess : 
+[2024/12/28 23:35:56] ppocr INFO:     name : CTCLabelDecode
+[2024/12/28 23:35:56] ppocr INFO: Train : 
+[2024/12/28 23:35:56] ppocr INFO:     dataset : 
+[2024/12/28 23:35:56] ppocr INFO:         data_dir : ../ic15_rec/
+[2024/12/28 23:35:56] ppocr INFO:         ds_width : False
+[2024/12/28 23:35:56] ppocr INFO:         ext_op_transform_idx : 1
+[2024/12/28 23:35:56] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:35:56] ppocr INFO:         name : MultiScaleDataSet
+[2024/12/28 23:35:56] ppocr INFO:         transforms : 
+[2024/12/28 23:35:56] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:35:56] ppocr INFO:                 channel_first : False
+[2024/12/28 23:35:56] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:35:56] ppocr INFO:             RecAug : None
+[2024/12/28 23:35:56] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:35:56] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:35:56] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:35:56] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:35:56] ppocr INFO:     loader : 
+[2024/12/28 23:35:56] ppocr INFO:         batch_size_per_card : 192
+[2024/12/28 23:35:56] ppocr INFO:         drop_last : True
+[2024/12/28 23:35:56] ppocr INFO:         num_workers : 8
+[2024/12/28 23:35:56] ppocr INFO:         shuffle : True
+[2024/12/28 23:35:56] ppocr INFO:     sampler : 
+[2024/12/28 23:35:56] ppocr INFO:         divided_factor : [8, 16]
+[2024/12/28 23:35:56] ppocr INFO:         first_bs : 192
+[2024/12/28 23:35:56] ppocr INFO:         fix_bs : False
+[2024/12/28 23:35:56] ppocr INFO:         is_training : True
+[2024/12/28 23:35:56] ppocr INFO:         name : MultiScaleSampler
+[2024/12/28 23:35:56] ppocr INFO:         scales : [[320, 32], [320, 48], [320, 64]]
+[2024/12/28 23:35:56] ppocr INFO: profiler_options : None
+[2024/12/28 23:35:56] ppocr INFO: train with paddle 2.6.2 and device Place(gpu:0)
+[2024/12/28 23:35:56] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:35:56] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:35:57] ppocr INFO: train dataloader has 30 iters
+[2024/12/28 23:35:57] ppocr INFO: valid dataloader has 17 iters
+[2024/12/28 23:35:57] ppocr INFO: load pretrain successful from ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:38:58] ppocr INFO: Architecture : 
+[2024/12/28 23:38:58] ppocr INFO:     Backbone : 
+[2024/12/28 23:38:58] ppocr INFO:         name : RepSVTR
+[2024/12/28 23:38:58] ppocr INFO:     Head : 
+[2024/12/28 23:38:58] ppocr INFO:         head_list : 
+[2024/12/28 23:38:58] ppocr INFO:             CTCHead : 
+[2024/12/28 23:38:58] ppocr INFO:                 Head : 
+[2024/12/28 23:38:58] ppocr INFO:                     fc_decay : 1e-05
+[2024/12/28 23:38:58] ppocr INFO:                 Neck : 
+[2024/12/28 23:38:58] ppocr INFO:                     depth : 2
+[2024/12/28 23:38:58] ppocr INFO:                     dims : 256
+[2024/12/28 23:38:58] ppocr INFO:                     hidden_dims : 256
+[2024/12/28 23:38:58] ppocr INFO:                     kernel_size : [1, 3]
+[2024/12/28 23:38:58] ppocr INFO:                     name : svtr
+[2024/12/28 23:38:58] ppocr INFO:                     use_guide : True
+[2024/12/28 23:38:58] ppocr INFO:             NRTRHead : 
+[2024/12/28 23:38:58] ppocr INFO:                 max_text_length : 25
+[2024/12/28 23:38:58] ppocr INFO:                 nrtr_dim : 384
+[2024/12/28 23:38:58] ppocr INFO:                 num_decoder_layers : 2
+[2024/12/28 23:38:58] ppocr INFO:         name : MultiHead
+[2024/12/28 23:38:58] ppocr INFO:     Transform : None
+[2024/12/28 23:38:58] ppocr INFO:     algorithm : SVTR_HGNet
+[2024/12/28 23:38:58] ppocr INFO:     model_type : rec
+[2024/12/28 23:38:58] ppocr INFO: Eval : 
+[2024/12/28 23:38:58] ppocr INFO:     dataset : 
+[2024/12/28 23:38:58] ppocr INFO:         data_dir : ../ic15_rec
+[2024/12/28 23:38:58] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:38:58] ppocr INFO:         name : SimpleDataSet
+[2024/12/28 23:38:58] ppocr INFO:         transforms : 
+[2024/12/28 23:38:58] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:38:58] ppocr INFO:                 channel_first : False
+[2024/12/28 23:38:58] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:38:58] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:38:58] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:38:58] ppocr INFO:             RecResizeImg : 
+[2024/12/28 23:38:58] ppocr INFO:                 image_shape : [3, 48, 320]
+[2024/12/28 23:38:58] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:38:58] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:38:58] ppocr INFO:     loader : 
+[2024/12/28 23:38:58] ppocr INFO:         batch_size_per_card : 128
+[2024/12/28 23:38:58] ppocr INFO:         drop_last : False
+[2024/12/28 23:38:58] ppocr INFO:         num_workers : 4
+[2024/12/28 23:38:58] ppocr INFO:         shuffle : False
+[2024/12/28 23:38:58] ppocr INFO: Global : 
+[2024/12/28 23:38:58] ppocr INFO:     cal_metric_during_train : False
+[2024/12/28 23:38:58] ppocr INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2024/12/28 23:38:58] ppocr INFO:     checkpoints : None
+[2024/12/28 23:38:58] ppocr INFO:     d2s_train_image_shape : [3, 48, 320]
+[2024/12/28 23:38:58] ppocr INFO:     debug : False
+[2024/12/28 23:38:58] ppocr INFO:     distributed : False
+[2024/12/28 23:38:58] ppocr INFO:     epoch_num : 20
+[2024/12/28 23:38:58] ppocr INFO:     eval_batch_step : [0]
+[2024/12/28 23:38:58] ppocr INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2024/12/28 23:38:58] ppocr INFO:     infer_mode : False
+[2024/12/28 23:38:58] ppocr INFO:     log_smooth_window : 10
+[2024/12/28 23:38:58] ppocr INFO:     max_text_length : 25
+[2024/12/28 23:38:58] ppocr INFO:     pretrained_model : ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:38:58] ppocr INFO:     print_batch_step : 10
+[2024/12/28 23:38:58] ppocr INFO:     save_epoch_step : 10
+[2024/12/28 23:38:58] ppocr INFO:     save_inference_dir : None
+[2024/12/28 23:38:58] ppocr INFO:     save_model_dir : ./output/rec_repsvtr_ch
+[2024/12/28 23:38:58] ppocr INFO:     save_res_path : ./output/rec/predicts_repsvtr.txt
+[2024/12/28 23:38:58] ppocr INFO:     use_gpu : True
+[2024/12/28 23:38:58] ppocr INFO:     use_space_char : True
+[2024/12/28 23:38:58] ppocr INFO:     use_visualdl : False
+[2024/12/28 23:38:58] ppocr INFO: Loss : 
+[2024/12/28 23:38:58] ppocr INFO:     loss_config_list : 
+[2024/12/28 23:38:58] ppocr INFO:         CTCLoss : None
+[2024/12/28 23:38:58] ppocr INFO:         NRTRLoss : None
+[2024/12/28 23:38:58] ppocr INFO:     name : MultiLoss
+[2024/12/28 23:38:58] ppocr INFO: Metric : 
+[2024/12/28 23:38:58] ppocr INFO:     main_indicator : acc
+[2024/12/28 23:38:58] ppocr INFO:     name : RecMetric
+[2024/12/28 23:38:58] ppocr INFO: Optimizer : 
+[2024/12/28 23:38:58] ppocr INFO:     beta1 : 0.9
+[2024/12/28 23:38:58] ppocr INFO:     beta2 : 0.999
+[2024/12/28 23:38:58] ppocr INFO:     epsilon : 1e-08
+[2024/12/28 23:38:58] ppocr INFO:     lr : 
+[2024/12/28 23:38:58] ppocr INFO:         learning_rate : 0.0001
+[2024/12/28 23:38:58] ppocr INFO:         name : Cosine
+[2024/12/28 23:38:58] ppocr INFO:         warmup_epoch : 5
+[2024/12/28 23:38:58] ppocr INFO:     name : AdamW
+[2024/12/28 23:38:58] ppocr INFO:     no_weight_decay_name : norm
+[2024/12/28 23:38:58] ppocr INFO:     one_dim_param_no_weight_decay : True
+[2024/12/28 23:38:58] ppocr INFO:     weight_decay : 0.025
+[2024/12/28 23:38:58] ppocr INFO: PostProcess : 
+[2024/12/28 23:38:58] ppocr INFO:     name : CTCLabelDecode
+[2024/12/28 23:38:58] ppocr INFO: Train : 
+[2024/12/28 23:38:58] ppocr INFO:     dataset : 
+[2024/12/28 23:38:58] ppocr INFO:         data_dir : ../ic15_rec/
+[2024/12/28 23:38:58] ppocr INFO:         ds_width : False
+[2024/12/28 23:38:58] ppocr INFO:         ext_op_transform_idx : 1
+[2024/12/28 23:38:58] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:38:58] ppocr INFO:         name : MultiScaleDataSet
+[2024/12/28 23:38:58] ppocr INFO:         transforms : 
+[2024/12/28 23:38:58] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:38:58] ppocr INFO:                 channel_first : False
+[2024/12/28 23:38:58] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:38:58] ppocr INFO:             RecAug : None
+[2024/12/28 23:38:58] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:38:58] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:38:58] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:38:58] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:38:58] ppocr INFO:     loader : 
+[2024/12/28 23:38:58] ppocr INFO:         batch_size_per_card : 192
+[2024/12/28 23:38:58] ppocr INFO:         drop_last : True
+[2024/12/28 23:38:58] ppocr INFO:         num_workers : 8
+[2024/12/28 23:38:58] ppocr INFO:         shuffle : True
+[2024/12/28 23:38:58] ppocr INFO:     sampler : 
+[2024/12/28 23:38:58] ppocr INFO:         divided_factor : [8, 16]
+[2024/12/28 23:38:58] ppocr INFO:         first_bs : 192
+[2024/12/28 23:38:58] ppocr INFO:         fix_bs : False
+[2024/12/28 23:38:58] ppocr INFO:         is_training : True
+[2024/12/28 23:38:58] ppocr INFO:         name : MultiScaleSampler
+[2024/12/28 23:38:58] ppocr INFO:         scales : [[320, 32], [320, 48], [320, 64]]
+[2024/12/28 23:38:58] ppocr INFO: profiler_options : None
+[2024/12/28 23:38:58] ppocr INFO: train with paddle 2.6.2 and device Place(gpu:0)
+[2024/12/28 23:38:58] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:38:58] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:38:59] ppocr INFO: train dataloader has 30 iters
+[2024/12/28 23:38:59] ppocr INFO: valid dataloader has 17 iters
+[2024/12/28 23:38:59] ppocr INFO: load pretrain successful from ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:40:14] ppocr INFO: Architecture : 
+[2024/12/28 23:40:14] ppocr INFO:     Backbone : 
+[2024/12/28 23:40:14] ppocr INFO:         name : RepSVTR
+[2024/12/28 23:40:14] ppocr INFO:     Head : 
+[2024/12/28 23:40:14] ppocr INFO:         head_list : 
+[2024/12/28 23:40:14] ppocr INFO:             CTCHead : 
+[2024/12/28 23:40:14] ppocr INFO:                 Head : 
+[2024/12/28 23:40:14] ppocr INFO:                     fc_decay : 1e-05
+[2024/12/28 23:40:14] ppocr INFO:                 Neck : 
+[2024/12/28 23:40:14] ppocr INFO:                     depth : 2
+[2024/12/28 23:40:14] ppocr INFO:                     dims : 256
+[2024/12/28 23:40:14] ppocr INFO:                     hidden_dims : 256
+[2024/12/28 23:40:14] ppocr INFO:                     kernel_size : [1, 3]
+[2024/12/28 23:40:14] ppocr INFO:                     name : svtr
+[2024/12/28 23:40:14] ppocr INFO:                     use_guide : True
+[2024/12/28 23:40:14] ppocr INFO:             NRTRHead : 
+[2024/12/28 23:40:14] ppocr INFO:                 max_text_length : 25
+[2024/12/28 23:40:14] ppocr INFO:                 nrtr_dim : 384
+[2024/12/28 23:40:14] ppocr INFO:                 num_decoder_layers : 2
+[2024/12/28 23:40:14] ppocr INFO:         name : MultiHead
+[2024/12/28 23:40:14] ppocr INFO:     Transform : None
+[2024/12/28 23:40:14] ppocr INFO:     algorithm : SVTR_HGNet
+[2024/12/28 23:40:14] ppocr INFO:     model_type : rec
+[2024/12/28 23:40:14] ppocr INFO: Eval : 
+[2024/12/28 23:40:14] ppocr INFO:     dataset : 
+[2024/12/28 23:40:14] ppocr INFO:         data_dir : ../ic15_rec
+[2024/12/28 23:40:14] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:40:14] ppocr INFO:         name : SimpleDataSet
+[2024/12/28 23:40:14] ppocr INFO:         transforms : 
+[2024/12/28 23:40:14] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:40:14] ppocr INFO:                 channel_first : False
+[2024/12/28 23:40:14] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:40:14] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:40:14] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:40:14] ppocr INFO:             RecResizeImg : 
+[2024/12/28 23:40:14] ppocr INFO:                 image_shape : [3, 48, 320]
+[2024/12/28 23:40:14] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:40:14] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:40:14] ppocr INFO:     loader : 
+[2024/12/28 23:40:14] ppocr INFO:         batch_size_per_card : 128
+[2024/12/28 23:40:14] ppocr INFO:         drop_last : False
+[2024/12/28 23:40:14] ppocr INFO:         num_workers : 4
+[2024/12/28 23:40:14] ppocr INFO:         shuffle : False
+[2024/12/28 23:40:14] ppocr INFO: Global : 
+[2024/12/28 23:40:14] ppocr INFO:     cal_metric_during_train : False
+[2024/12/28 23:40:14] ppocr INFO:     character_dict_path : ppocr/utils/ppocr_keys_v1.txt
+[2024/12/28 23:40:14] ppocr INFO:     checkpoints : None
+[2024/12/28 23:40:14] ppocr INFO:     d2s_train_image_shape : [3, 48, 320]
+[2024/12/28 23:40:14] ppocr INFO:     debug : False
+[2024/12/28 23:40:14] ppocr INFO:     distributed : False
+[2024/12/28 23:40:14] ppocr INFO:     epoch_num : 20
+[2024/12/28 23:40:14] ppocr INFO:     eval_batch_step : [0, 1000]
+[2024/12/28 23:40:14] ppocr INFO:     infer_img : doc/imgs_words/ch/word_1.jpg
+[2024/12/28 23:40:14] ppocr INFO:     infer_mode : False
+[2024/12/28 23:40:14] ppocr INFO:     log_smooth_window : 10
+[2024/12/28 23:40:14] ppocr INFO:     max_text_length : 25
+[2024/12/28 23:40:14] ppocr INFO:     pretrained_model : ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:40:14] ppocr INFO:     print_batch_step : 10
+[2024/12/28 23:40:14] ppocr INFO:     save_epoch_step : 10
+[2024/12/28 23:40:14] ppocr INFO:     save_inference_dir : None
+[2024/12/28 23:40:14] ppocr INFO:     save_model_dir : ./output/rec_repsvtr_ch
+[2024/12/28 23:40:14] ppocr INFO:     save_res_path : ./output/rec/predicts_repsvtr.txt
+[2024/12/28 23:40:14] ppocr INFO:     use_gpu : True
+[2024/12/28 23:40:14] ppocr INFO:     use_space_char : True
+[2024/12/28 23:40:14] ppocr INFO:     use_visualdl : False
+[2024/12/28 23:40:14] ppocr INFO: Loss : 
+[2024/12/28 23:40:14] ppocr INFO:     loss_config_list : 
+[2024/12/28 23:40:14] ppocr INFO:         CTCLoss : None
+[2024/12/28 23:40:14] ppocr INFO:         NRTRLoss : None
+[2024/12/28 23:40:14] ppocr INFO:     name : MultiLoss
+[2024/12/28 23:40:14] ppocr INFO: Metric : 
+[2024/12/28 23:40:14] ppocr INFO:     main_indicator : acc
+[2024/12/28 23:40:14] ppocr INFO:     name : RecMetric
+[2024/12/28 23:40:14] ppocr INFO: Optimizer : 
+[2024/12/28 23:40:14] ppocr INFO:     beta1 : 0.9
+[2024/12/28 23:40:14] ppocr INFO:     beta2 : 0.999
+[2024/12/28 23:40:14] ppocr INFO:     epsilon : 1e-08
+[2024/12/28 23:40:14] ppocr INFO:     lr : 
+[2024/12/28 23:40:14] ppocr INFO:         learning_rate : 0.0001
+[2024/12/28 23:40:14] ppocr INFO:         name : Cosine
+[2024/12/28 23:40:14] ppocr INFO:         warmup_epoch : 5
+[2024/12/28 23:40:14] ppocr INFO:     name : AdamW
+[2024/12/28 23:40:14] ppocr INFO:     no_weight_decay_name : norm
+[2024/12/28 23:40:14] ppocr INFO:     one_dim_param_no_weight_decay : True
+[2024/12/28 23:40:14] ppocr INFO:     weight_decay : 0.025
+[2024/12/28 23:40:14] ppocr INFO: PostProcess : 
+[2024/12/28 23:40:14] ppocr INFO:     name : CTCLabelDecode
+[2024/12/28 23:40:14] ppocr INFO: Train : 
+[2024/12/28 23:40:14] ppocr INFO:     dataset : 
+[2024/12/28 23:40:14] ppocr INFO:         data_dir : ../ic15_rec/
+[2024/12/28 23:40:14] ppocr INFO:         ds_width : False
+[2024/12/28 23:40:14] ppocr INFO:         ext_op_transform_idx : 1
+[2024/12/28 23:40:14] ppocr INFO:         label_file_list : ['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:40:14] ppocr INFO:         name : MultiScaleDataSet
+[2024/12/28 23:40:14] ppocr INFO:         transforms : 
+[2024/12/28 23:40:14] ppocr INFO:             DecodeImage : 
+[2024/12/28 23:40:14] ppocr INFO:                 channel_first : False
+[2024/12/28 23:40:14] ppocr INFO:                 img_mode : BGR
+[2024/12/28 23:40:14] ppocr INFO:             RecAug : None
+[2024/12/28 23:40:14] ppocr INFO:             MultiLabelEncode : 
+[2024/12/28 23:40:14] ppocr INFO:                 gtc_encode : NRTRLabelEncode
+[2024/12/28 23:40:14] ppocr INFO:             KeepKeys : 
+[2024/12/28 23:40:14] ppocr INFO:                 keep_keys : ['image', 'label_ctc', 'label_gtc', 'length', 'valid_ratio']
+[2024/12/28 23:40:14] ppocr INFO:     loader : 
+[2024/12/28 23:40:14] ppocr INFO:         batch_size_per_card : 192
+[2024/12/28 23:40:14] ppocr INFO:         drop_last : True
+[2024/12/28 23:40:14] ppocr INFO:         num_workers : 8
+[2024/12/28 23:40:14] ppocr INFO:         shuffle : True
+[2024/12/28 23:40:14] ppocr INFO:     sampler : 
+[2024/12/28 23:40:14] ppocr INFO:         divided_factor : [8, 16]
+[2024/12/28 23:40:14] ppocr INFO:         first_bs : 192
+[2024/12/28 23:40:14] ppocr INFO:         fix_bs : False
+[2024/12/28 23:40:14] ppocr INFO:         is_training : True
+[2024/12/28 23:40:14] ppocr INFO:         name : MultiScaleSampler
+[2024/12/28 23:40:14] ppocr INFO:         scales : [[320, 32], [320, 48], [320, 64]]
+[2024/12/28 23:40:14] ppocr INFO: profiler_options : None
+[2024/12/28 23:40:14] ppocr INFO: train with paddle 2.6.2 and device Place(gpu:0)
+[2024/12/28 23:40:14] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_train.txt']
+[2024/12/28 23:40:14] ppocr INFO: Initialize indexs of datasets:['../ic15_rec/rec_gt_test.txt']
+[2024/12/28 23:40:15] ppocr INFO: train dataloader has 30 iters
+[2024/12/28 23:40:15] ppocr INFO: valid dataloader has 17 iters
+[2024/12/28 23:40:15] ppocr INFO: load pretrain successful from ../openatom_rec_repsvtr_ch_train\openatom_rec_repsvtr_ch_train\best_accuracy_stu
+[2024/12/28 23:40:15] ppocr INFO: During the training process, after the 0th iteration, an evaluation is run every 1000 iterations
+[2024/12/28 23:43:03] ppocr INFO: epoch: [1/20], global_step: 10, lr: 0.000003, CTCLoss: 15.683266, NRTRLoss: 2.233016, loss: 17.885672, avg_reader_cost: 0.04492 s, avg_batch_cost: 9.56552 s, avg_samples: 137.6, ips: 14.38500 samples/s, eta: 1:34:03, max_mem_reserved: 9412 MB, max_mem_allocated: 9009 MB
+[2024/12/28 23:45:52] ppocr INFO: epoch: [1/20], global_step: 20, lr: 0.000010, CTCLoss: 12.479828, NRTRLoss: 2.099007, loss: 14.571032, avg_reader_cost: 0.00174 s, avg_batch_cost: 7.71908 s, avg_samples: 156.8, ips: 20.31330 samples/s, eta: 1:23:32, max_mem_reserved: 9412 MB, max_mem_allocated: 9028 MB
+[2024/12/28 23:48:27] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/28 23:48:43] ppocr INFO: epoch: [2/20], global_step: 30, lr: 0.000016, CTCLoss: 8.659512, NRTRLoss: 1.914553, loss: 10.623189, avg_reader_cost: 0.28485 s, avg_batch_cost: 7.72447 s, avg_samples: 124.8, ips: 16.15646 samples/s, eta: 1:19:03, max_mem_reserved: 9412 MB, max_mem_allocated: 9028 MB
+[2024/12/28 23:51:15] ppocr INFO: epoch: [2/20], global_step: 40, lr: 0.000023, CTCLoss: 7.617724, NRTRLoss: 1.844419, loss: 9.462142, avg_reader_cost: 0.00147 s, avg_batch_cost: 6.75371 s, avg_samples: 118.4, ips: 17.53111 samples/s, eta: 1:13:58, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/28 23:53:56] ppocr INFO: epoch: [2/20], global_step: 50, lr: 0.000030, CTCLoss: 5.273012, NRTRLoss: 1.744209, loss: 6.973700, avg_reader_cost: 0.00152 s, avg_batch_cost: 7.27245 s, avg_samples: 150.4, ips: 20.68078 samples/s, eta: 1:11:26, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/28 23:56:02] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/28 23:56:38] ppocr INFO: epoch: [3/20], global_step: 60, lr: 0.000036, CTCLoss: 4.248261, NRTRLoss: 1.648951, loss: 5.897213, avg_reader_cost: 0.15874 s, avg_batch_cost: 7.32095 s, avg_samples: 140.8, ips: 19.23249 samples/s, eta: 1:09:16, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/28 23:59:21] ppocr INFO: epoch: [3/20], global_step: 70, lr: 0.000043, CTCLoss: 3.861214, NRTRLoss: 1.553575, loss: 5.434959, avg_reader_cost: 0.00226 s, avg_batch_cost: 7.00290 s, avg_samples: 121.6, ips: 17.36423 samples/s, eta: 1:07:04, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:02:26] ppocr INFO: epoch: [3/20], global_step: 80, lr: 0.000050, CTCLoss: 4.025644, NRTRLoss: 1.619111, loss: 5.642291, avg_reader_cost: 0.00150 s, avg_batch_cost: 8.42320 s, avg_samples: 150.4, ips: 17.85545 samples/s, eta: 1:06:40, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:04:31] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:05:20] ppocr INFO: epoch: [4/20], global_step: 90, lr: 0.000056, CTCLoss: 3.740861, NRTRLoss: 1.568317, loss: 5.322443, avg_reader_cost: 0.29562 s, avg_batch_cost: 8.15689 s, avg_samples: 144.0, ips: 17.65378 samples/s, eta: 1:05:39, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:08:23] ppocr INFO: epoch: [4/20], global_step: 100, lr: 0.000063, CTCLoss: 3.446290, NRTRLoss: 1.573735, loss: 4.987425, avg_reader_cost: 0.00222 s, avg_batch_cost: 7.91624 s, avg_samples: 140.8, ips: 17.78623 samples/s, eta: 1:04:29, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:11:24] ppocr INFO: epoch: [4/20], global_step: 110, lr: 0.000070, CTCLoss: 2.677171, NRTRLoss: 1.487265, loss: 4.154400, avg_reader_cost: 0.00185 s, avg_batch_cost: 8.21665 s, avg_samples: 128.0, ips: 15.57813 samples/s, eta: 1:03:30, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:13:06] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:14:13] ppocr INFO: epoch: [5/20], global_step: 120, lr: 0.000076, CTCLoss: 3.235322, NRTRLoss: 1.540981, loss: 4.776303, avg_reader_cost: 0.19514 s, avg_batch_cost: 7.78116 s, avg_samples: 147.2, ips: 18.91749 samples/s, eta: 1:02:02, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:16:48] ppocr INFO: epoch: [5/20], global_step: 130, lr: 0.000083, CTCLoss: 3.258282, NRTRLoss: 1.505293, loss: 4.764095, avg_reader_cost: 0.00167 s, avg_batch_cost: 7.04626 s, avg_samples: 134.4, ips: 19.07395 samples/s, eta: 1:00:16, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:19:21] ppocr INFO: epoch: [5/20], global_step: 140, lr: 0.000090, CTCLoss: 2.135096, NRTRLoss: 1.422664, loss: 3.546716, avg_reader_cost: 0.00163 s, avg_batch_cost: 6.99309 s, avg_samples: 137.6, ips: 19.67657 samples/s, eta: 0:58:34, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:20:35] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:21:57] ppocr INFO: epoch: [6/20], global_step: 150, lr: 0.000096, CTCLoss: 3.060991, NRTRLoss: 1.473716, loss: 4.556221, avg_reader_cost: 0.11409 s, avg_batch_cost: 7.14968 s, avg_samples: 140.8, ips: 19.69318 samples/s, eta: 0:56:52, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:24:38] ppocr INFO: epoch: [6/20], global_step: 160, lr: 0.000100, CTCLoss: 3.196027, NRTRLoss: 1.487310, loss: 4.683337, avg_reader_cost: 0.00175 s, avg_batch_cost: 7.33987 s, avg_samples: 144.0, ips: 19.61889 samples/s, eta: 0:55:27, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:27:18] ppocr INFO: epoch: [6/20], global_step: 170, lr: 0.000100, CTCLoss: 2.280749, NRTRLoss: 1.415210, loss: 3.695960, avg_reader_cost: 0.00158 s, avg_batch_cost: 7.01026 s, avg_samples: 134.4, ips: 19.17190 samples/s, eta: 0:53:54, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:28:19] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:29:54] ppocr INFO: epoch: [7/20], global_step: 180, lr: 0.000100, CTCLoss: 2.631052, NRTRLoss: 1.425079, loss: 4.056132, avg_reader_cost: 0.25118 s, avg_batch_cost: 7.04020 s, avg_samples: 144.0, ips: 20.45397 samples/s, eta: 0:52:17, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:32:17] ppocr INFO: epoch: [7/20], global_step: 190, lr: 0.000099, CTCLoss: 1.833892, NRTRLoss: 1.366441, loss: 3.167439, avg_reader_cost: 0.00153 s, avg_batch_cost: 6.16036 s, avg_samples: 115.2, ips: 18.70020 samples/s, eta: 0:50:31, max_mem_reserved: 9607 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:34:58] ppocr INFO: epoch: [7/20], global_step: 200, lr: 0.000099, CTCLoss: 3.271802, NRTRLoss: 1.467086, loss: 4.739458, avg_reader_cost: 0.00137 s, avg_batch_cost: 7.28470 s, avg_samples: 156.8, ips: 21.52455 samples/s, eta: 0:49:12, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:35:49] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:37:34] ppocr INFO: epoch: [8/20], global_step: 210, lr: 0.000098, CTCLoss: 1.551187, NRTRLoss: 1.359270, loss: 2.910457, avg_reader_cost: 0.14836 s, avg_batch_cost: 7.14954 s, avg_samples: 144.0, ips: 20.14116 samples/s, eta: 0:47:43, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:39:59] ppocr INFO: epoch: [8/20], global_step: 220, lr: 0.000097, CTCLoss: 1.972081, NRTRLoss: 1.381110, loss: 3.353191, avg_reader_cost: 0.00160 s, avg_batch_cost: 6.28707 s, avg_samples: 124.8, ips: 19.85027 samples/s, eta: 0:46:08, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:42:39] ppocr INFO: epoch: [8/20], global_step: 230, lr: 0.000096, CTCLoss: 2.267079, NRTRLoss: 1.375233, loss: 3.660367, avg_reader_cost: 0.00185 s, avg_batch_cost: 7.33813 s, avg_samples: 147.2, ips: 20.05960 samples/s, eta: 0:44:53, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:43:10] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:45:26] ppocr INFO: epoch: [9/20], global_step: 240, lr: 0.000095, CTCLoss: 2.060018, NRTRLoss: 1.357371, loss: 3.439542, avg_reader_cost: 0.15767 s, avg_batch_cost: 7.54218 s, avg_samples: 131.2, ips: 17.39550 samples/s, eta: 0:43:33, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:48:15] ppocr INFO: epoch: [9/20], global_step: 250, lr: 0.000094, CTCLoss: 1.872151, NRTRLoss: 1.349715, loss: 3.221867, avg_reader_cost: 0.00135 s, avg_batch_cost: 7.50203 s, avg_samples: 140.8, ips: 18.76824 samples/s, eta: 0:42:20, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:51:04] ppocr INFO: epoch: [9/20], global_step: 260, lr: 0.000093, CTCLoss: 1.657416, NRTRLoss: 1.311837, loss: 2.968241, avg_reader_cost: 0.00171 s, avg_batch_cost: 7.63535 s, avg_samples: 134.4, ips: 17.60234 samples/s, eta: 0:41:08, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:51:22] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 00:54:12] ppocr INFO: epoch: [10/20], global_step: 270, lr: 0.000091, CTCLoss: 3.205331, NRTRLoss: 1.440482, loss: 4.646765, avg_reader_cost: 0.12888 s, avg_batch_cost: 8.91229 s, avg_samples: 169.6, ips: 19.02990 samples/s, eta: 0:40:04, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 00:57:29] ppocr INFO: epoch: [10/20], global_step: 280, lr: 0.000090, CTCLoss: 1.635300, NRTRLoss: 1.334433, loss: 2.955617, avg_reader_cost: 0.00372 s, avg_batch_cost: 8.62923 s, avg_samples: 121.6, ips: 14.09164 samples/s, eta: 0:39:02, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:00:30] ppocr INFO: epoch: [10/20], global_step: 290, lr: 0.000088, CTCLoss: 1.285385, NRTRLoss: 1.320193, loss: 2.598724, avg_reader_cost: 0.00196 s, avg_batch_cost: 8.17553 s, avg_samples: 131.2, ips: 16.04789 samples/s, eta: 0:37:53, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:00:32] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:00:35] ppocr INFO: save model in ./output/rec_repsvtr_ch\iter_epoch_10
+[2024/12/29 01:03:22] ppocr INFO: epoch: [11/20], global_step: 300, lr: 0.000086, CTCLoss: 1.653253, NRTRLoss: 1.302260, loss: 2.955514, avg_reader_cost: 0.55493 s, avg_batch_cost: 7.63095 s, avg_samples: 124.8, ips: 16.35445 samples/s, eta: 0:36:31, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:06:04] ppocr INFO: epoch: [11/20], global_step: 310, lr: 0.000085, CTCLoss: 2.484429, NRTRLoss: 1.383180, loss: 3.867609, avg_reader_cost: 0.00141 s, avg_batch_cost: 7.50841 s, avg_samples: 163.2, ips: 21.73562 samples/s, eta: 0:35:15, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:08:22] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:08:36] ppocr INFO: epoch: [12/20], global_step: 320, lr: 0.000083, CTCLoss: 1.716876, NRTRLoss: 1.304366, loss: 3.019266, avg_reader_cost: 0.25231 s, avg_batch_cost: 6.87941 s, avg_samples: 128.0, ips: 18.60625 samples/s, eta: 0:33:46, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:11:02] ppocr INFO: epoch: [12/20], global_step: 330, lr: 0.000081, CTCLoss: 1.201144, NRTRLoss: 1.291315, loss: 2.480063, avg_reader_cost: 0.00189 s, avg_batch_cost: 6.28265 s, avg_samples: 118.4, ips: 18.84555 samples/s, eta: 0:32:21, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:13:34] ppocr INFO: epoch: [12/20], global_step: 340, lr: 0.000078, CTCLoss: 1.587317, NRTRLoss: 1.303046, loss: 2.898774, avg_reader_cost: 0.00175 s, avg_batch_cost: 6.91349 s, avg_samples: 144.0, ips: 20.82886 samples/s, eta: 0:31:02, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:15:38] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:16:08] ppocr INFO: epoch: [13/20], global_step: 350, lr: 0.000076, CTCLoss: 2.000645, NRTRLoss: 1.343506, loss: 3.341256, avg_reader_cost: 0.20749 s, avg_batch_cost: 7.35702 s, avg_samples: 166.4, ips: 22.61787 samples/s, eta: 0:29:39, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:18:28] ppocr INFO: epoch: [13/20], global_step: 360, lr: 0.000074, CTCLoss: 1.102880, NRTRLoss: 1.283719, loss: 2.400140, avg_reader_cost: 0.00129 s, avg_batch_cost: 6.08907 s, avg_samples: 121.6, ips: 19.97021 samples/s, eta: 0:28:15, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:20:58] ppocr INFO: epoch: [13/20], global_step: 370, lr: 0.000072, CTCLoss: 1.994697, NRTRLoss: 1.315031, loss: 3.317783, avg_reader_cost: 0.00130 s, avg_batch_cost: 6.80872 s, avg_samples: 150.4, ips: 22.08931 samples/s, eta: 0:26:57, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:22:38] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:23:22] ppocr INFO: epoch: [14/20], global_step: 380, lr: 0.000069, CTCLoss: 1.687358, NRTRLoss: 1.306677, loss: 3.000657, avg_reader_cost: 0.08175 s, avg_batch_cost: 6.60777 s, avg_samples: 134.4, ips: 20.33969 samples/s, eta: 0:25:31, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:25:46] ppocr INFO: epoch: [14/20], global_step: 390, lr: 0.000067, CTCLoss: 1.536616, NRTRLoss: 1.290324, loss: 2.823053, avg_reader_cost: 0.00140 s, avg_batch_cost: 6.34496 s, avg_samples: 134.4, ips: 21.18216 samples/s, eta: 0:24:12, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:28:15] ppocr INFO: epoch: [14/20], global_step: 400, lr: 0.000064, CTCLoss: 1.556141, NRTRLoss: 1.306468, loss: 2.851164, avg_reader_cost: 0.00150 s, avg_batch_cost: 6.79640 s, avg_samples: 150.4, ips: 22.12937 samples/s, eta: 0:22:55, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:29:41] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:30:41] ppocr INFO: epoch: [15/20], global_step: 410, lr: 0.000062, CTCLoss: 1.709014, NRTRLoss: 1.292544, loss: 3.001559, avg_reader_cost: 0.12684 s, avg_batch_cost: 6.63678 s, avg_samples: 131.2, ips: 19.76863 samples/s, eta: 0:21:31, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:33:08] ppocr INFO: epoch: [15/20], global_step: 420, lr: 0.000059, CTCLoss: 1.608955, NRTRLoss: 1.290843, loss: 2.908390, avg_reader_cost: 0.00130 s, avg_batch_cost: 6.77426 s, avg_samples: 144.0, ips: 21.25693 samples/s, eta: 0:20:16, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:35:30] ppocr INFO: epoch: [15/20], global_step: 430, lr: 0.000057, CTCLoss: 1.340690, NRTRLoss: 1.289497, loss: 2.630961, avg_reader_cost: 0.00150 s, avg_batch_cost: 6.26156 s, avg_samples: 131.2, ips: 20.95323 samples/s, eta: 0:18:58, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:36:47] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:38:02] ppocr INFO: epoch: [16/20], global_step: 440, lr: 0.000054, CTCLoss: 1.569732, NRTRLoss: 1.297830, loss: 2.860161, avg_reader_cost: 0.21099 s, avg_batch_cost: 6.89914 s, avg_samples: 147.2, ips: 21.33599 samples/s, eta: 0:17:37, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:40:31] ppocr INFO: epoch: [16/20], global_step: 450, lr: 0.000051, CTCLoss: 1.704784, NRTRLoss: 1.286929, loss: 2.998292, avg_reader_cost: 0.00161 s, avg_batch_cost: 6.84684 s, avg_samples: 144.0, ips: 21.03161 samples/s, eta: 0:16:23, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:43:00] ppocr INFO: epoch: [16/20], global_step: 460, lr: 0.000049, CTCLoss: 1.525673, NRTRLoss: 1.282856, loss: 2.807874, avg_reader_cost: 0.00120 s, avg_batch_cost: 6.72199 s, avg_samples: 147.2, ips: 21.89828 samples/s, eta: 0:15:08, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:43:56] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:45:20] ppocr INFO: epoch: [17/20], global_step: 470, lr: 0.000046, CTCLoss: 0.882747, NRTRLoss: 1.255856, loss: 2.134624, avg_reader_cost: 0.11210 s, avg_batch_cost: 6.14635 s, avg_samples: 115.2, ips: 18.74283 samples/s, eta: 0:13:46, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:47:48] ppocr INFO: epoch: [17/20], global_step: 480, lr: 0.000044, CTCLoss: 1.775008, NRTRLoss: 1.294689, loss: 3.067089, avg_reader_cost: 0.00161 s, avg_batch_cost: 6.71473 s, avg_samples: 153.6, ips: 22.87508 samples/s, eta: 0:12:32, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:50:14] ppocr INFO: epoch: [17/20], global_step: 490, lr: 0.000041, CTCLoss: 1.522490, NRTRLoss: 1.281135, loss: 2.807151, avg_reader_cost: 0.00170 s, avg_batch_cost: 6.57781 s, avg_samples: 134.4, ips: 20.43234 samples/s, eta: 0:11:18, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:50:59] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 01:52:41] ppocr INFO: epoch: [18/20], global_step: 500, lr: 0.000038, CTCLoss: 1.500026, NRTRLoss: 1.266331, loss: 2.771965, avg_reader_cost: 0.19447 s, avg_batch_cost: 6.75441 s, avg_samples: 140.8, ips: 20.84564 samples/s, eta: 0:09:58, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:55:02] ppocr INFO: epoch: [18/20], global_step: 510, lr: 0.000036, CTCLoss: 1.020027, NRTRLoss: 1.261961, loss: 2.288027, avg_reader_cost: 0.00140 s, avg_batch_cost: 6.06653 s, avg_samples: 124.8, ips: 20.57188 samples/s, eta: 0:08:44, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:57:28] ppocr INFO: epoch: [18/20], global_step: 520, lr: 0.000033, CTCLoss: 1.260563, NRTRLoss: 1.262354, loss: 2.522917, avg_reader_cost: 0.00170 s, avg_batch_cost: 6.75759 s, avg_samples: 144.0, ips: 21.30938 samples/s, eta: 0:07:32, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 01:58:01] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 02:00:01] ppocr INFO: epoch: [19/20], global_step: 530, lr: 0.000031, CTCLoss: 2.286910, NRTRLoss: 1.310297, loss: 3.597207, avg_reader_cost: 0.19881 s, avg_batch_cost: 7.47293 s, avg_samples: 166.4, ips: 22.26705 samples/s, eta: 0:06:13, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:02:26] ppocr INFO: epoch: [19/20], global_step: 540, lr: 0.000029, CTCLoss: 1.389946, NRTRLoss: 1.254296, loss: 2.645274, avg_reader_cost: 0.00110 s, avg_batch_cost: 6.44713 s, avg_samples: 137.6, ips: 21.34282 samples/s, eta: 0:05:01, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:04:43] ppocr INFO: epoch: [19/20], global_step: 550, lr: 0.000026, CTCLoss: 0.870962, NRTRLoss: 1.259588, loss: 2.127751, avg_reader_cost: 0.00156 s, avg_batch_cost: 5.98731 s, avg_samples: 118.4, ips: 19.77516 samples/s, eta: 0:03:48, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:04:59] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 02:07:08] ppocr INFO: epoch: [20/20], global_step: 560, lr: 0.000024, CTCLoss: 1.476071, NRTRLoss: 1.265731, loss: 2.749741, avg_reader_cost: 0.09498 s, avg_batch_cost: 6.46839 s, avg_samples: 128.0, ips: 19.78855 samples/s, eta: 0:02:29, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:09:33] ppocr INFO: epoch: [20/20], global_step: 570, lr: 0.000022, CTCLoss: 1.288244, NRTRLoss: 1.269896, loss: 2.568781, avg_reader_cost: 0.00120 s, avg_batch_cost: 6.42251 s, avg_samples: 134.4, ips: 20.92640 samples/s, eta: 0:01:18, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:12:01] ppocr INFO: epoch: [20/20], global_step: 580, lr: 0.000020, CTCLoss: 1.506713, NRTRLoss: 1.275031, loss: 2.779668, avg_reader_cost: 0.00130 s, avg_batch_cost: 6.86623 s, avg_samples: 156.8, ips: 22.83642 samples/s, eta: 0:00:07, max_mem_reserved: 9802 MB, max_mem_allocated: 9028 MB
+[2024/12/29 02:12:02] ppocr INFO: save model in ./output/rec_repsvtr_ch\latest
+[2024/12/29 02:12:03] ppocr INFO: save model in ./output/rec_repsvtr_ch\iter_epoch_20
+[2024/12/29 02:12:03] ppocr INFO: best metric, acc: 0, is_float16: False
